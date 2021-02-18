@@ -1,10 +1,14 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable {
     @FXML
     private Button button;
 
@@ -18,5 +22,10 @@ public class Controller {
     @FXML
     private void buttonPushed(){
         messageLabel.setText("Here is a new message");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) { //this clears the label tag
+        messageLabel.setText("");
     }
 }
