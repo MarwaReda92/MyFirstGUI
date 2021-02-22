@@ -15,7 +15,7 @@ public class Controller implements Initializable {
     @FXML
     private Label messageLabel;
 
-    private DeckOfCards deckOfCards;
+    private DeckOfCards deckOfCards; //goes inside controller class, and before the methods
 
 
     /**
@@ -23,8 +23,8 @@ public class Controller implements Initializable {
      */
     @FXML
     private void buttonPushed(){
-        Card card = deckOfCards.dealTopCard();
-        messageLabel.setText(card.toString());
+        Card card = deckOfCards.dealTopCard(); //creates/gets card object by dealing the top of the deck
+        messageLabel.setText(card.toString()); //update the label by calling the settext method, and we pass in a string from the card
     }
 
     /**
@@ -33,9 +33,9 @@ public class Controller implements Initializable {
      * @param resourceBundle
      */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { //this clears the label tag
-        deckOfCards = new DeckOfCards();
-        deckOfCards.shuffle();
-        messageLabel.setText("");
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        deckOfCards = new DeckOfCards(); //instantiates new deck of cards
+        deckOfCards.shuffle();  //shuffles the deck
+        messageLabel.setText("");  //clears the label text
     }
 }
